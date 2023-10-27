@@ -9,10 +9,18 @@
         android:id="@+id/detailFragment"
         android:name="com.muratozcan.moviesapp.ui.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="movie"
+            app:argType="com.muratozcan.moviesapp.data.entity.Movies" />
+    </fragment>
     <fragment
         android:id="@+id/mainpageFragment"
         android:name="com.muratozcan.moviesapp.ui.fragment.MainpageFragment"
         android:label="fragment_mainpage"
-        tools:layout="@layout/fragment_mainpage" />
+        tools:layout="@layout/fragment_mainpage" >
+        <action
+            android:id="@+id/detailPass"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>
