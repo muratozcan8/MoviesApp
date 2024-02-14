@@ -13,7 +13,9 @@ import com.muratozcan.moviesapp.data.entity.Movies
 import com.muratozcan.moviesapp.databinding.FragmentMainpageBinding
 import com.muratozcan.moviesapp.ui.adapter.MoviesAdapter
 import com.muratozcan.moviesapp.ui.viewmodel.MainpageViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainpageFragment : Fragment() {
     private lateinit var binding: FragmentMainpageBinding
     private lateinit var viewModel: MainpageViewModel
