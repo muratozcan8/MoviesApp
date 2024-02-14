@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.muratozcan.moviesapp.R
 import com.muratozcan.moviesapp.databinding.FragmentDetailBinding
 import com.muratozcan.moviesapp.databinding.FragmentMainpageBinding
@@ -21,7 +22,8 @@ class DetailFragment : Fragment() {
 
         binding.movieObject = movie
 
-        binding.ivMovie.setImageResource(resources.getIdentifier(movie.image, "drawable", requireContext().packageName))
+        val url = "http://kasimadalan.pe.hu/filmler_yeni/resimler/${movie.resim}"
+        Glide.with(this).load(url).override(500, 750).into(binding.ivMovie)
 
         return binding.root
     }

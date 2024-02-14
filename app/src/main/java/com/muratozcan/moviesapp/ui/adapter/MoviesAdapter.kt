@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.snackbar.SnackbarContentLayout
 import com.muratozcan.moviesapp.R
@@ -27,7 +28,8 @@ class MoviesAdapter(var mContext: Context, var moviesList: List<Movies>)
         val movie = moviesList[position]
         val d = holder.design
 
-        d.imageViewMovie.setImageResource(mContext.resources.getIdentifier(movie.image, "drawable", mContext.packageName))
+        val url = "http://kasimadalan.pe.hu/filmler_yeni/resimler/${movie.resim}"
+        Glide.with(mContext).load(url).override(500, 750).into(d.imageViewMovie)
 
         d.movieObject = movie
 
@@ -37,7 +39,7 @@ class MoviesAdapter(var mContext: Context, var moviesList: List<Movies>)
         }
 
         d.buttonBasket.setOnClickListener {
-            Snackbar.make(it, "${movie.name} was added to basket", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(it, "${movie.ad} was added to basket", Snackbar.LENGTH_SHORT).show()
         }
     }
 
